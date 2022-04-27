@@ -3,7 +3,7 @@
 - välised sõltuvused
 ```sh
 sudo apt-get update
-sudo apt-get install build-essential csh realpath autotools-dev automake sox git cmake
+sudo apt-get install build-essential csh realpath sox
 ```
 
 - anaconda3 installimine https://docs.anaconda.com/anaconda/install/linux/
