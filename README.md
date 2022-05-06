@@ -39,6 +39,6 @@ conda activate mrln_et
 ./synth.sh eki_et_tnu16k in.txt tnu.wav
 ```
 
-- github-ist tuleb kaasa eki_et_tnu16k hääl. Rohkem hääli on saadaval https://www.eki.ee/~indrek/mrln_et Allalaetud hääled tuleks lahti pakkida `voices/` kausta.
+- github-ist tuleb kaasa eki_et_tnu16k hääl. Rohkem hääli on saadaval https://www.eki.ee/~indrek/mrln_et Allalaaditud hääled tuleks lahti pakkida `voices/` kausta.
 
 
