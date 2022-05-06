@@ -1,5 +1,17 @@
-# Merlinil (https://github.com/CSTR-Edinburgh/merlin) põhinevad sünteeshääled
+# Merlinil põhinevad sünteeshääled
 
+==============================================================================
+
+      Merlin: The Neural Network (NN) based Speech Synthesis System
+						https://github.com/CSTR-Edinburgh/merlin
+
+==============================================================================
+
+             Morfoloogiline analüsaator ja ühestaja                
+                 Copyright (c) 2015, Filosoft                      
+              https://github.com/Filosoft/vabamorf                 
+
+==============================================================================
 # INSTALL
 
 - välised sõltuvused
