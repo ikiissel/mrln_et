@@ -1,9 +1,9 @@
-# Merlinil põhinevad sünteeshääled
+# Merlinil põhinev eesti keele kõnesüntesaator
 
 ==============================================================================
 
       Merlin: The Neural Network (NN) based Speech Synthesis System
-						https://github.com/CSTR-Edinburgh/merlin
+              https://github.com/CSTR-Edinburgh/merlin
 
 ==============================================================================
 
@@ -12,7 +12,7 @@
               https://github.com/Filosoft/vabamorf                 
 
 ==============================================================================
-# INSTALL
+## INSTALL
 
 - välised sõltuvused
 ```sh
