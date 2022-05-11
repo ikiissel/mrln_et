@@ -8,7 +8,7 @@ src_dir=$(dirname $1)
 # Source install-related environment variables
 source ${src_dir}/setup_env.sh
 
-use_gpu_lock=true
+use_gpu_lock=false
 
 if [ "$use_gpu_lock" = true ]; then
     # Try to lock a GPU...
@@ -39,7 +39,7 @@ else
     gpu_id=0
 
     # Run the input command (run_merlin.py) with its arguments
-    THEANO_FLAGS="mode=FAST_RUN,device=gpu$gpu_id,"$MERLIN_THEANO_FLAGS
+    THEANO_FLAGS="mode=FAST_RUN,device=cpu,"$MERLIN_THEANO_FLAGS
     export THEANO_FLAGS
  
     python $@
