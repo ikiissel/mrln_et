@@ -2,13 +2,14 @@
 
 
 current_working_dir=$(pwd)
-merlin_dir=$current_working_dir
+merlin_dir=$(pwd)
 
 Voice=$1
 inp_txt=$2
 out_wav=$3
+synthesis_dir=$4
 
-GGenLab=tools/genlab
+GGenLab=$merlin_dir/tools/genlab
 
 
 dur_config_file=conf/dur_synth.conf
@@ -42,7 +43,7 @@ $SED -i s#'test_id_list\s*:.*'#'test_id_list: %(TOPLEVEL)s/voices/'${Voice}'/tes
 
 echo "preparing full-contextual labels"
 mkdir -p ${current_working_dir}/voices/${Voice}/test_synthesis/prompt-lab
-./${GGenLab}/bin/genlab -lex ${GGenLab}/dct/et.dct -lexd ${GGenLab}/dct/et3.dct -o ${current_working_dir}/voices/${Voice}/test_synthesis/ -f ${inp_txt}
+${GGenLab}/bin/genlab -lex ${GGenLab}/dct/et.dct -lexd ${GGenLab}/dct/et3.dct -o ${current_working_dir}/voices/${Voice}/test_synthesis/ -f ${inp_txt}
 
 
 echo "synthesizing durations..."

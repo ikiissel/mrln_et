@@ -2,6 +2,8 @@ tools/SPTK-3.9/
 tools/bin
 *.log
 *.status
+log/
+tmp/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

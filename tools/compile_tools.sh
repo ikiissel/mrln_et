@@ -15,7 +15,7 @@ install_genlab=true
 # 1. Get and compile SPTK
 if [ "$install_sptk" = true ]; then
     echo "downloading SPTK-3.9..."
-    sptk_url=http://downloads.sourceforge.net/sp-tk/SPTK-3.9.tar.gz
+    sptk_url=https://downloads.sourceforge.net/sp-tk/SPTK-3.9.tar.gz
     if hash curl 2>/dev/null; then
         curl -L -O $sptk_url
     elif hash wget 2>/dev/null; then
