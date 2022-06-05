@@ -50,14 +50,19 @@ class FilePaths(object):
     self.cfg = cfg
 
     self.inter_data_dir = cfg.inter_data_dir
-    if not os.path.exists(self.inter_data_dir):
-      os.makedirs(self.inter_data_dir)
+
+    # Väljas
+    #print (dir(cfg.inter_data_dir))
+    #if not os.path.exists(self.inter_data_dir):
+    #  os.makedirs(self.inter_data_dir)
+
+
 
     self.nn_cmp_dir = os.path.join(
-        self.inter_data_dir,
+        cfg.log_path,
         'nn' + self.cfg.combined_feature_name + '_' + str(self.cfg.cmp_dim))
     self.nn_cmp_norm_dir = os.path.join(
-        self.inter_data_dir, 'nn_norm' + self.cfg.combined_feature_name + '_' +
+        cfg.log_path, 'nn_norm' + self.cfg.combined_feature_name + '_' +
         str(self.cfg.cmp_dim))
     self.model_dir = os.path.join(self.cfg.work_dir, 'nnets_model')
     self.gen_dir = os.path.join(self.cfg.work_dir, 'gen')
@@ -71,11 +76,10 @@ class FilePaths(object):
                                        self._NORM_INFO_FILE_NAME %
                                        (cfg.combined_feature_name, cfg.cmp_dim,
                                         cfg.output_feature_normalisation))
-
     ### save acoustic normalisation information for normalising the features back
     self.var_dir = os.path.join(self.inter_data_dir, 'var')
-    if not os.path.exists(self.var_dir):
-      os.makedirs(self.var_dir)
+    #if not os.path.exists(self.var_dir):
+    #  os.makedirs(self.var_dir)
 
     if self.cfg.MAKEDUR:
       self.dur_file_list = prepare_file_path_list(
@@ -124,19 +128,22 @@ class FilePaths(object):
         feature_name + '_' + str(self.cfg.out_dimension_dict[feature_name]))
 
   def set_label_dir(self, dimension, suffix, lab_dim):
-    self.binary_label_dir = os.path.join(self.inter_data_dir,
-                                         'binary_label_' + str(dimension))
+    self.binary_label_dir = os.path.join(self.cfg.log_path,
+                                     '1_binary_label_' + str(dimension))
     self.nn_label_dir = os.path.join(self.inter_data_dir,
                                      'nn_no_silence_lab_' + suffix)
+                                     
+    
     self.nn_label_norm_dir = os.path.join(self.inter_data_dir,
                                           'nn_no_silence_lab_norm_' + suffix)
 
     label_norm_file = 'label_norm_%s_%d.dat' % (self.cfg.label_style, lab_dim)
     self.label_norm_file = os.path.join(self.inter_data_dir, label_norm_file)
 
-    out_feat_dir = os.path.join(self.inter_data_dir, 'binary_label_' + suffix)
-    self.out_feat_file_list = prepare_file_path_list(
-        self.file_id_list, out_feat_dir, self.cfg.lab_ext)
+    out_feat_dir = os.path.join(self.inter_data_dir, '2_binary_label_' + suffix)
+    
+    #self.out_feat_file_list = prepare_file_path_list(
+        #self.file_id_list, out_feat_dir, self.cfg.lab_ext)
 
   def get_nn_cmp_file_list(self):
     return prepare_file_path_list(self.file_id_list, self.nn_cmp_dir,
