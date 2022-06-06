@@ -8,14 +8,15 @@ import shutil
 
 MERLIN_PATH = os.path.dirname(os.path.abspath(__file__))
 TEMP_BASE = os.getenv('MERLIN_TEMP_DIR')
-VOICE = 'eki_et_tnu16k'
+VOICE = os.getenv('MERLIN_VOICE')
 
 def synthesize(text: str) -> bytes:
     
-    tempDir = str(time.time()).replace('.','')
-    tempDir = os.path.join(TEMP_BASE, tempDir)
-    os.mkdir(tempDir)
-    
+    #tempDir = str(time.time()).replace('.','')
+    #tempDir = os.path.join(TEMP_BASE, tempDir)
+    #os.mkdir(tempDir)
+    tempDir = TEMP_BASE
+
     inPath = os.path.join(tempDir, 'in.txt')
     with open(inPath, 'w') as f:
         f.write(text)
@@ -23,7 +24,7 @@ def synthesize(text: str) -> bytes:
     outPath = os.path.join(tempDir, 'out.wav')
     subprocess.run(
         [
-            './synth.sh',
+            './web.sh',
             VOICE,
             inPath,
             outPath,
@@ -35,7 +36,7 @@ def synthesize(text: str) -> bytes:
     with open(outPath, 'rb') as f:
         wav = f.read()
 
-    shutil.rmtree(tempDir)
+#    shutil.rmtree(tempDir)
     return wav
 
 if __name__ == '__main__':
